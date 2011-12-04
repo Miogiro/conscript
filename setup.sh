@@ -13,7 +13,12 @@ echo "
 [boot]
   directory: $CS/boot" >> $CLC
 
-BIN=$HOME/bin
+
+if hash brew 2>&-; then
+  BIN=/usr/local/bin
+else
+  BIN=$HOME/bin
+fi
 mkdir -p $BIN
 
 echo "#!/bin/sh
